@@ -186,8 +186,14 @@ function t() {
 
 # Open zshrc config
 alias zshconfig="code ~/.zshrc"
+# Check the weather, based on IP address - using wttr.in
+alias weather='curl wttr.in/'
 # Make us of colorls Ruby Gem to display icons and colors for ls command
 alias ls="colorls"
+# Use youtube-dl to extract mp3 from youtube clip
+alias getmp3="youtube-dl -x --audio-format mp3"
+# Use youtube-dl to extract mp4 video
+alias getvideo="youtube-dl -f mp4"
 # Use trash instead of rm command so that you can retrieve deleted files
 alias rm="trash"
 source /Users/BrettCimbalik/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
