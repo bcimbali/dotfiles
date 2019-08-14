@@ -1,12 +1,27 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# To use RubyGem Colorls
+# To use RubyGem Colorls - not sure this is needed
 # source $(dirname $(gem which colorls))/tab_complete.sh
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/BrettCimbalik/.oh-my-zsh"
 
+# Path for MySQL@5.7 to work
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# Export to get node to not give 'unset prefix error'
+export NVM_DIR="$HOME/.nvm"
+unset PREFIX # Add this line
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Env variables for Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Font for Powerlevel9k theme, from Nerd-Fonts
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -181,19 +196,45 @@ function t() {
 
 ##################################### ALIASES #####################################
 # ##### Example aliases #########
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Open zshrc config
 alias zshconfig="code ~/.zshrc"
 # Check the weather, based on IP address - using wttr.in
 alias weather='curl wttr.in/'
-# Make us of colorls Ruby Gem to display icons and colors for ls command
-alias ls="colorls"
+# Make us of colorls Ruby Gem to display icons and colors for ls command - disabled on 4/22/2019
+# re-enabled on 5/21/2019. Added -a and --sort-dir to list
+alias ls="colorls -a --sort-dirs"
 # Use youtube-dl to extract mp3 from youtube clip
 alias getmp3="youtube-dl -x --audio-format mp3"
 # Use youtube-dl to extract mp4 video
 alias getvideo="youtube-dl -f mp4"
 # Use trash instead of rm command so that you can retrieve deleted files
 alias rm="trash"
+# Open git config
+alias gitconfig="code ~/.gitconfig"
+# Open Graveflex directory
+alias gfx="cd code/graveflex"
+# For starting Rails server bound to port 3030 & listen 
+# on all interfaces, not just the loopback interface(127.0.0.1)
+alias rs="rails s -p 3030 -b 0.0.0.0"
+# Git add .
+alias ga="git add ."
+# Git status
+alias gst='git status'
+# Git pull
+alias gl="git pull"
+# Git pull origin
+alias glo="git pull origin"
+# Git pull origin master
+alias glom="git pull origin master"
+# Git push origin
+alias gpo="git push origin"
+# Git push origin
+alias gpom="git push origin master"
+# Git checkout
+alias gch="git checkout"
+# Create a new branch and checkout into it
+alias gchb="git checkout -b"
+
 source /Users/BrettCimbalik/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
